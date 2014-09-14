@@ -1,8 +1,9 @@
 bind-address = "0.0.0.0"
 
 [logging]
-level  = "debug"
-file   = "/opt/influxdb/shared/data/influxdb.log"  # stdout to log to standard out
+# logging level can be one of "debug", "info", "warn" or "error"
+level  = "info"
+file   = "/var/data/log/influxdb.log"  # stdout to log to standard out
 
 [admin]
 port   = 8083 # binding is disabled if the port isn't set
@@ -23,10 +24,10 @@ database = "graphite"  # store graphite data in this database
 
 [raft]
 port = 8090
-dir  = "/opt/influxdb/shared/data/raft"
+dir  = "/var/data/influxdb/raft"
 
 [storage]
-dir = "/opt/influxdb/shared/data/db"
+dir = "/var/data/influxdb/db"
 # How many requests to potentially buffer in memory. If the buffer gets filled then writes
 # will still be logged and once the local storage has caught up (or compacted) the writes
 # will be replayed from the WAL
@@ -68,7 +69,7 @@ split = 1
 # split-random = "/^Hf.*/"
 
 [wal]
-dir   = "/opt/influxdb/shared/data/wal"
+dir   = "/var/data/influxdb/wal"
 flush-after = 1000 # the number of writes after which wal will be flushed, 0 for flushing on every write
 bookmark-after = 1000 # the number of writes after which a bookmark will be created
 index-after = 1000

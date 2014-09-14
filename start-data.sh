@@ -1,3 +1,2 @@
 #! /bin/bash
-
-sudo docker run -v /data busybox:ubuntu-14.04
+docker run -d --name data -v /var/data busybox:ubuntu-14.04

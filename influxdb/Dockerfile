@@ -1,4 +1,4 @@
-# Build a Docker container for the InfluxDB time series database.
+# Build a Docker image for the InfluxDB time series database.
 
 FROM ubuntu:trusty
 

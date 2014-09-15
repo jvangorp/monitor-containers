@@ -1,7 +1,5 @@
-# Build a Docker image for nginx as a reverse proxy with the following mappings:
-# InfluxDB admin page localhost:8083 -> /influxdb/admin
-# InfluxDB api localhost:8086 -> /influxdb/api
-
+# Build a Docker image for nginx as a reverse proxy.
+# See the nginx.conf file for the reverse proxy mappings.
 
 FROM ubuntu:trusty
 

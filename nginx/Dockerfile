@@ -5,15 +5,10 @@
 
 FROM ubuntu:trusty
 
-ADD http://s3.amazonaws.com/influxdb/influxdb_latest_amd64.deb /influxdb_latest_amd64.deb
-
-RUN mkdir -p /opt/influxdb/shared/data
-RUN dpkg -i /influxdb_latest_amd64.deb
-RUN rm -rf /opt/influxdb/shared/data
-
-ADD config.toml /opt/influxdb/shared/config.toml
+RUN apt-get install -y nginx
+RUN rm /etc/nginx/nginx.conf
+ADD nginx.conf  /etc/nginx/nginx.conf
 
 EXPOSE 80 443
 
-ENTRYPOINT ["/usr/bin/influxdb"]
-CMD ["-config=/opt/influxdb/shared/config.toml"]
+CMD ["nginx"]

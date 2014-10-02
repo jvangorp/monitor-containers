@@ -3,6 +3,7 @@
 
 FROM ubuntu:trusty
 
+RUN apt-get update
 RUN apt-get install -y nginx
 RUN rm /etc/nginx/nginx.conf
 ADD nginx.conf  /etc/nginx/nginx.conf
